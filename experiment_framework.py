@@ -8,6 +8,7 @@ import datetime
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass, asdict
 import pandas as pd
+from scipy.stats import pearsonr
 
 from perceptual_task import MotionCoherenceTask, PsychophysicalAnalysis, TrialResult
 from spiking_network import LeakyIntegrateFireNetwork, NetworkParams

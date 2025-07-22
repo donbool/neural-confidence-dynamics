@@ -131,7 +131,7 @@ class NeuralConfidenceAnalyzer:
         right_rates = population_rates['right_decision']
         
         # Combined variance in final decision period
-        decision_period = -200:  # Last 200ms
+        decision_period = slice(-200, None)  # Last 200ms
         left_var = np.var(left_rates[decision_period])
         right_var = np.var(right_rates[decision_period])
         
