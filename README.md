@@ -1,34 +1,48 @@
-# emergent confidence and context-dependent dynamics in noisy recurrent neural systems
+# Neural Mechanisms of Perceptual Confidence
 
+## Scientific Rationale
 
-this project simulates a context-dependent decision-making task using a noisy recurrent neural network (RNN), designed to explore how confidence-like signals and dynamic representations emerge from internal neural activity under structured noise. the model mimicks aspects of biological decision-making, such as: context switches, stimulus ambiguity, and trial-to-trial variability. 
+This project investigates how confidence emerges from the dynamics of neural populations during perceptual decision-making, using biologically plausible spiking neural networks and established psychophysical paradigms.
 
+## Theoretical Framework
 
-this is just a computational experiment aligned with principles from ML and cognitive neuroscience.
+Based on established neuroscience literature (Shadlen & Newsome, 2001; Kiani & Shadlen, 2009; Pouget et al., 2016), this project tests the hypothesis that:
+
+1. **Confidence emerges from decision dynamics**: Not just final output probabilities, but from the temporal evolution of evidence accumulation
+2. **Neural variability drives uncertainty**: Trial-to-trial variability in neural responses correlates with subjective confidence
+3. **Competing attractors generate choice**: Decision-making emerges from competition between neural populations
+4. **Time-to-decision predicts confidence**: Faster decisions (shorter RTs) correlate with higher confidence
+
+## Experimental Design
+
+### Task: Motion Coherence Decision
+- **Stimulus**: Random dot kinematogram with varying motion coherence (0-51.2%)
+- **Choice**: Left vs Right motion direction
+- **Confidence**: Binary confidence judgment (high/low confidence)
+- **Context**: Rule switches between motion direction and motion speed judgments
+
+### Model Architecture
+- **Spiking Neural Network**: Leaky integrate-and-fire neurons
+- **Populations**: Sensory (MT/MST), Decision (LIP), Confidence (area X)
+- **Connectivity**: Biologically constrained (Dale's principle, realistic delays)
+- **Time constants**: Realistic membrane and synaptic dynamics
+
+### Analysis Methods
+1. **Decision dynamics**: Evidence accumulation trajectories
+2. **Confidence mechanisms**: Population variance, time-to-threshold, choice predictive activity
+3. **Neural-behavioral correlations**: Spike count correlations with choice and confidence
+4. **Dynamical systems**: Attractor landscapes, flow fields, stability analysis
+
+## Scientific Predictions
+
+1. Higher coherence → faster decisions → higher confidence
+2. Neural variance anti-correlates with confidence
+3. Confidence correlates with decision boundary distance at choice time
+4. Context switches slow decisions and reduce confidence
+
+## Validation
+- Compare to human psychophysical data (Kiani & Shadlen, 2009)
+- Benchmark against drift-diffusion models
+- Test specific neural predictions from monkey electrophysiology
 
 ---
-
-## goals
-
-- simulate a flexible decision-making task with noisy inputs and shifting context rules  
-- train an RNN to solve the task and generalize across contexts  
-- analyze internal dynamics to identify latent correlations of confidence and belief  
-- study how context remapping and structured noise affect neural representations
-
----
-
-## looking into
-
-- noisy stimulus encoding and rule-based context switching  
-- confidence as an emergent property from internal dynamics (e.g., entropy, distance to boundary) rather than being the output  
-- latent space visualization using PCA, t-SNE, or UMAP idk yet
-- possibly going to do dynamical systems analysis via fixed points and stability
-
----
-
-## what u shall see
-
-- accuracy and confidence metrics across trial conditions  
-- visualization of RNN state trajectories colored by stimulus, context, and trial difficulty  
-- confidence-accuracy correlation plots  
-- attractor analysis and flow field visualizations of RNN dynamics

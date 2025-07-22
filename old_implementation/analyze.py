@@ -7,7 +7,7 @@ from model import ContextRNN
 from generate_data import generate_trials
 from train import prepare_dataloader
 from sklearn.decomposition import PCA
-from sklearn.metrics import accuracy_score
+# from sklearn.metrics import accuracy_score  # unused
 from scipy.stats import pearsonr
 
 def get_hidden_activations(model, dataloader):
@@ -84,7 +84,9 @@ def analyze_confidence_accuracy_correlation(results):
     print(f"  Entropy: r={r_entropy:.3f}, p={p_entropy:.3f}")
     
     # Plot confidence vs accuracy
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+    plt.figure(figsize=(12, 5))
+    ax1 = plt.subplot(1, 2, 1)
+    ax2 = plt.subplot(1, 2, 2)
     
     # Binned accuracy by confidence
     def plot_binned_accuracy(ax, confidence, title):

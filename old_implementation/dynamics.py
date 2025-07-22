@@ -30,7 +30,7 @@ def plot_2D_dynamics(hidden, title="RNN Hidden Dynamics (PCA)"):
     projected = pca.fit_transform(hidden)
 
     plt.figure(figsize=(8, 6))
-    plt.scatter(projected[:, 0], projected[:, 1], alpha=0.6, cmap="viridis", s=15)
+    plt.scatter(projected[:, 0], projected[:, 1], alpha=0.6, s=15)
     plt.title(title)
     plt.xlabel("PC1")
     plt.ylabel("PC2")

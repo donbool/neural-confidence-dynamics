@@ -124,21 +124,20 @@ class ExperimentRunner:
         # Extract hidden activations and analyze confidence
         results = get_hidden_activations(model, test_loader)
         
-        # Plot PCA
-        plt.figure(figsize=(15, 5))
-        
-        plt.subplot(1, 3, 1)
+        # Plot PCA - margin confidence
         plot_pca(results['hidden'], results['confidence_margin'], 'margin')
         plt.savefig(self.experiment_dir / 'pca_margin_confidence.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
-        plt.subplot(1, 3, 2)
+        # Plot PCA - entropy confidence
         plot_pca(results['hidden'], results['confidence_entropy'], 'entropy')
         plt.savefig(self.experiment_dir / 'pca_entropy_confidence.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
-        plt.subplot(1, 3, 3)
         # Analyze correlations
         correlations = analyze_confidence_accuracy_correlation(results)
         plt.savefig(self.experiment_dir / 'confidence_accuracy_correlation.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
         # Save results
         np.savez(self.experiment_dir / 'confidence_results.npz', 
@@ -247,6 +246,7 @@ class ExperimentRunner:
         # Plot validation results
         plot_validation_results(validation_results)
         plt.savefig(self.experiment_dir / 'validation_plots.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
         # Statistical analysis
         print("\\nPerforming statistical analysis...")
@@ -256,6 +256,7 @@ class ExperimentRunner:
         print("\\nAnalyzing noise sensitivity...")
         noise_sensitivity_analysis()
         plt.savefig(self.experiment_dir / 'noise_sensitivity.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
         return validation_results
     
