@@ -9,14 +9,21 @@ from generate_data import generate_trials
 import numpy as np
 
 
-def prepare_dataloader(trials, batch_size=32):
+def prepare_dataloader(trials, batch_size=32, use_sequences=True):
     """
     Convert generated trial data to PyTorch DataLoader.
     """
-    X = np.array(trials["input"], dtype=np.float32)
+    if use_sequences and "sequence" in trials:
+        # Use full sequences
+        X = np.array(trials["sequence"], dtype=np.float32)  # Shape: (N, seq_len, input_dim)
+    else:
+        # Use single timestep (backward compatibility)
+        X = np.array(trials["input"], dtype=np.float32)
+        X = X[:, np.newaxis, :]  # Add sequence dimension: (B, T=1, F)
+    
     y = np.array(trials["label"], dtype=np.int64)
 
-    X_tensor = torch.tensor(X).unsqueeze(1)  # Add sequence dimension: (B, T=1, F)
+    X_tensor = torch.tensor(X)
     y_tensor = torch.tensor(y)
 
     dataset = TensorDataset(X_tensor, y_tensor)
@@ -57,11 +64,22 @@ def train_model(model, dataloader, num_epochs=10, lr=1e-3):
     return model
 
 
+def save_model(model, filepath="trained_model.pth"):
+    """
+    Save trained model state dict.
+    """
+    torch.save(model.state_dict(), filepath)
+    print(f"Model saved to {filepath}")
+
+
 if __name__ == "__main__":
-    # Generate training data
-    trials = generate_trials(n_trials=1000, noise_std=0.25, structured_noise=True, seed=42)
-    dataloader = prepare_dataloader(trials)
+    # Generate training data with sequences
+    trials = generate_trials(n_trials=1000, noise_std=0.25, structured_noise=True, seq_len=5, seed=42)
+    dataloader = prepare_dataloader(trials, use_sequences=True)
 
     # Init and train model
     model = ContextRNN(input_size=3, hidden_size=64, output_size=2, rnn_type="gru")
     trained_model = train_model(model, dataloader, num_epochs=20)
+    
+    # Save the trained model
+    save_model(trained_model)
