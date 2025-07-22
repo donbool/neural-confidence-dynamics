@@ -1,5 +1,8 @@
 # neural mechs of perceptual confidence
 
+failed, useless lol
+
+
 investigating how confidence emerges from the dynamics of neural populations during perceptual decision-making, using biologically plausible spiking neural networks and established psychophysical paradigms.
 
 based on (Shadlen & Newsome, 2001; Kiani & Shadlen, 2009; Pouget et al., 2016), testing:
