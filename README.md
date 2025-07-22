@@ -1,7 +1,10 @@
 # emergent confidence and context-dependent dynamics in noisy recurrent neural systems
 
 
-this project simulates a context-dependent decision-making task using a noisy recurrent neural network (RNN), designed to explore how confidence-like signals and dynamic representations emerge from internal neural activity under structured noise. by mimicking key features of biological decision-making, including context switches, stimulus ambiguity, and trial-to-trial variability, the model serves as a computational experiment aligned with principles from systems and cognitive neuroscience.
+this project simulates a context-dependent decision-making task using a noisy recurrent neural network (RNN), designed to explore how confidence-like signals and dynamic representations emerge from internal neural activity under structured noise. the model mimicks aspects of biological decision-making, such as: context switches, stimulus ambiguity, and trial-to-trial variability. 
+
+
+this is just a computational experiment aligned with principles from ML and cognitive neuroscience.
 
 ---
 
@@ -9,17 +12,17 @@ this project simulates a context-dependent decision-making task using a noisy re
 
 - simulate a flexible decision-making task with noisy inputs and shifting context rules  
 - train an RNN to solve the task and generalize across contexts  
-- analyze internal dynamics to identify latent correlates of confidence and belief  
+- analyze internal dynamics to identify latent correlations of confidence and belief  
 - study how context remapping and structured noise affect neural representations
 
 ---
 
-## concepts covered
+## looking into
 
 - noisy stimulus encoding and rule-based context switching  
 - confidence as an emergent property from internal dynamics (e.g., entropy, distance to boundary) rather than being the output  
-- latent space visualization using PCA, t-SNE, or UMAP  
-- dynamical systems analysis via fixed points and stability (oof)
+- latent space visualization using PCA, t-SNE, or UMAP idk yet
+- possibly going to do dynamical systems analysis via fixed points and stability
 
 ---
 
