@@ -1,10 +1,6 @@
 # Neural Mechanisms of Perceptual Confidence
 
-## Scientific Rationale
-
 This project investigates how confidence emerges from the dynamics of neural populations during perceptual decision-making, using biologically plausible spiking neural networks and established psychophysical paradigms.
-
-## Theoretical Framework
 
 Based on established neuroscience literature (Shadlen & Newsome, 2001; Kiani & Shadlen, 2009; Pouget et al., 2016), this project tests the hypothesis that:
 
