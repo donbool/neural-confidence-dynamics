@@ -10,7 +10,7 @@ this project simulates a context-dependent decision-making task using a noisy re
 - simulate a flexible decision-making task with noisy inputs and shifting context rules  
 - train an RNN to solve the task and generalize across contexts  
 - analyze internal dynamics to identify latent correlates of confidence and belief  
-- ttudy how context remapping and structured noise affect neural representations
+- study how context remapping and structured noise affect neural representations
 
 ---
 
